@@ -5,15 +5,15 @@ import ProductList from './component/ProductList';
 function App() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-  fetch('https://fakestoreapi.com/products')
-  .then(response => response.json())
-  .then(data => setProducts(data));
+    fetch('https://fakestoreapi.com/products')
+    .then(response => response.json())
+    .then(data => setProducts(data));
   }, []);
 
   const processedProducts = products
-  .map(product => ({
-  ...product,
-  price: product.price * 0.2
+    .map(product => ({
+    ...product,
+    price: product.price * 0.2
   }))
   .filter(product => product.rating.rate > 4.0);
 
